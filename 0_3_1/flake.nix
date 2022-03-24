@@ -32,7 +32,7 @@
   inputs."colorizeecho".owner = "nim-nix-pkgs";
   inputs."colorizeecho".ref   = "master";
   inputs."colorizeecho".repo  = "colorizeecho";
-  inputs."colorizeecho".dir   = "";
+  inputs."colorizeecho".dir   = "main";
   inputs."colorizeecho".type  = "github";
   inputs."colorizeecho".inputs.nixpkgs.follows = "nixpkgs";
   inputs."colorizeecho".inputs.flakeNimbleLib.follows = "flakeNimbleLib";
@@ -41,10 +41,13 @@
   let 
     lib  = flakeNimbleLib.lib;
     args = ["self" "nixpkgs" "flakeNimbleLib" "src-mcd-0_3_1"];
-  in lib.mkRefOutput {
+    over = if builtins.pathExists ./override.nix 
+           then { override = import ./override.nix; }
+           else { };
+  in lib.mkRefOutput (over // {
     inherit self nixpkgs ;
     src  = deps."src-mcd-0_3_1";
     deps = builtins.removeAttrs deps args;
     meta = builtins.fromJSON (builtins.readFile ./meta.json);
-  };
+  } );
 }
