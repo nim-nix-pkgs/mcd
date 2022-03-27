@@ -11,6 +11,7 @@
   inputs.src-mcd-0_3_1.ref   = "refs/tags/0.3.1";
   inputs.src-mcd-0_3_1.owner = "malicious-commit-detector";
   inputs.src-mcd-0_3_1.repo  = "mcd";
+  inputs.src-mcd-0_3_1.dir   = "";
   inputs.src-mcd-0_3_1.type  = "gitlab";
   
   inputs."parsetoml".owner = "nim-nix-pkgs";
