@@ -11,7 +11,6 @@
   inputs.src-mcd-master.ref   = "refs/heads/master";
   inputs.src-mcd-master.owner = "malicious-commit-detector";
   inputs.src-mcd-master.repo  = "mcd";
-  inputs.src-mcd-master.dir   = "";
   inputs.src-mcd-master.type  = "gitlab";
   
   inputs."parsetoml".owner = "nim-nix-pkgs";
