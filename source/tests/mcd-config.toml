@@ -1,4 +1,0 @@
-build_command = ["cmake.exe ..", "cmake.exe --build . --config Release"]
-build_dir = "./build"
-file_path = ["build/Release/malicious.exe"]
-project_dir = "./MaliciousTest"
